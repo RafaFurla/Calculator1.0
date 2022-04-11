@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>260</width>
+    <height>320</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>260</width>
+    <height>320</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>260</width>
+    <height>320</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Calculator</string>
+  </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(60, 60, 60);
+color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>241</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="externalgrid">
+     <item>
+      <widget class="QLCDNumber" name="lcd">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(100, 100, 100);</string>
+       </property>
+       <property name="smallDecimalPoint">
+        <bool>true</bool>
+       </property>
+       <property name="digitCount">
+        <number>11</number>
+       </property>
+       <property name="segmentStyle">
+        <enum>QLCDNumber::Filled</enum>
+       </property>
+       <property name="value" stdset="0">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="intValue" stdset="0">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QGridLayout" name="internalLayout">
+       <item row="2" column="2">
+        <widget class="QPushButton" name="b6">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(100, 100, 100);</string>
+         </property>
+         <property name="text">
+          <string>6</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QPushButton" name="bsub">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(100, 100, 100);</string>
+         </property>
+         <property name="text">
+          <string>-</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="2">
+        <widget class="QPushButton" name="bdot">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(100, 100, 100);</string>
+         </property>
+         <property name="text">
+          <string>.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="b8">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(100, 100, 100);</string>
+         </property>
+         <property name="text">
+          <string>8</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="3">
+        <widget class="QPushButton" name="bsum">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(100, 100, 100);</string>
+         </property>
+         <property name="text">
+          <string>+</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QPushButton" name="bperc">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(100, 100, 100);</string>
+         </property>
+         <property name="text">
+          <string>%</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QPushButton" name="b7">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(100, 100, 100);</string>
+         </property>
+         <property name="text">
+          <string>7</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QPushButton" name="bdiv">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(100, 100, 100);</string>
+         </property>
+         <property name="text">
+          <string>/</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QPushButton" name="b5">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(100, 100, 100);</string>
+         </property>
+         <property name="text">
+          <string>5</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QPushButton" name="b3">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(100, 100, 100);</string>
+         </property>
+         <property name="text">
+          <string>3</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QPushButton" name="b9">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(100, 100, 100);</string>
+         </property>
+         <property name="text">
+          <string>9</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QPushButton" name="b1">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(100, 100, 100);</string>
+         </property>
+         <property name="text">
+          <string>1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="bce">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(100, 100, 100);</string>
+         </property>
+         <property name="text">
+          <string>CE</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="3">
+        <widget class="QPushButton" name="bequal">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(255, 170, 0);</string>
+         </property>
+         <property name="text">
+          <string>=</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QPushButton" name="b2">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(100, 100, 100);</string>
+         </property>
+         <property name="text">
+          <string>2</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="bdel">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(100, 100, 100);</string>
+         </property>
+         <property name="text">
+          <string>&lt;-</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QPushButton" name="bx">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(100, 100, 100);</string>
+         </property>
+         <property name="text">
+          <string>x</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QPushButton" name="b0">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(100, 100, 100);</string>
+         </property>
+         <property name="text">
+          <string>0</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+         <property name="default">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="b4">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(100, 100, 100);</string>
+         </property>
+         <property name="text">
+          <string>4</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QPushButton" name="bc">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(170, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>C</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
