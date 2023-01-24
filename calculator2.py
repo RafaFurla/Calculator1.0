@@ -1,663 +1,355 @@
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtWidgets import QMessageBox
+
+
 def dot():
-    global k
-    if k == '':
-        k = '0.'
-    else:
-        if k.count('.') > 0:
-            k = k
-        else:
-            if float(k) == 0:
-                k = '0.'
-            elif float(k) != 0:
-                k += '.'
-    uifile.lcd.display(k)
+    global displayed_content
+    if displayed_content[1] is None:
+        if displayed_content[0].count('.') == 0:
+            displayed_content[0] += '.'
+            return uifile.lcd.display(displayed_content[0])
+    elif displayed_content[1]:
+        if displayed_content[2].count('.') == 0:
+            displayed_content[2] += '.'
+            return uifile.lcd.display(displayed_content[2])
+
+
 def number0():
-    global k
-    global t
-    if t.count('%') > 0:
-        k = '0'
-    elif k == '':
-        k = '0'
-    elif float(k) == 0:
-        if k.count('.') > 0:
-            k += '0'
+    global displayed_content
+    if displayed_content[1] is None:
+        if displayed_content[0] == '0':
+            return uifile.lcd.display(displayed_content[0])
         else:
-            k = '0'
-    elif float(k) != 0:
-        k += '0'
-    uifile.lcd.display(k)
+            displayed_content[0] += '0'
+            return uifile.lcd.display(displayed_content[0])
+    elif displayed_content[1]:
+        if displayed_content[2] == '0':
+            return uifile.lcd.display(displayed_content[2])
+        else:
+            displayed_content[2] += '0'
+            return uifile.lcd.display(displayed_content[2])
+
+
 def number1():
-    global k
-    global t
-    if t.count('%') > 0:
-        k = '1'
-    elif k == '':
-        k = '1'
-    elif float(k) == 0:
-        if k.count('.') > 0:
-            k += '1'
+    global displayed_content
+    if displayed_content[1] is None:
+        if displayed_content[0] == '0':
+            displayed_content[0] = '1'
+            return uifile.lcd.display(displayed_content[0])
         else:
-            k = '1'
-    elif float(k) != 0:
-        k += '1'
-    uifile.lcd.display(k)
+            displayed_content[0] += '1'
+            return uifile.lcd.display(displayed_content[0])
+    elif displayed_content[1]:
+        if displayed_content[2] == '0':
+            displayed_content[2] = '1'
+            return uifile.lcd.display(displayed_content[2])
+        else:
+            displayed_content[2] += '1'
+            return uifile.lcd.display(displayed_content[2])
+
+
 def number2():
-    global k
-    global t
-    if t.count('%') > 0:
-        k = '2'
-    elif k == '':
-        k = '2'
-    elif float(k) == 0:
-        if k.count('.') > 0:
-            k += '2'
+    global displayed_content
+    if displayed_content[1] is None:
+        if displayed_content[0] == '0':
+            displayed_content[0] = '2'
+            return uifile.lcd.display(displayed_content[0])
         else:
-            k = '2'
-    elif float(k) != 0:
-        k += '2'
-    uifile.lcd.display(k)
+            displayed_content[0] += '2'
+            return uifile.lcd.display(displayed_content[0])
+    elif displayed_content[1]:
+        if displayed_content[2] == '0':
+            displayed_content[2] = '2'
+            return uifile.lcd.display(displayed_content[2])
+        else:
+            displayed_content[2] += '2'
+            return uifile.lcd.display(displayed_content[2])
+
+
 def number3():
-    global k
-    global t
-    if t.count('%') > 0:
-        k = '3'
-    elif k == '':
-        k = '3'
-    elif float(k) == 0:
-        if k.count('.') > 0:
-            k += '3'
+    global displayed_content
+    if displayed_content[1] is None:
+        if displayed_content[0] == '0':
+            displayed_content[0] = '3'
+            return uifile.lcd.display(displayed_content[0])
         else:
-            k = '3'
-    elif float(k) != 0:
-        k += '3'
-    uifile.lcd.display(k)
+            displayed_content[0] += '3'
+            return uifile.lcd.display(displayed_content[0])
+    elif displayed_content[1]:
+        if displayed_content[2] == '0':
+            displayed_content[2] = '3'
+            return uifile.lcd.display(displayed_content[2])
+        else:
+            displayed_content[2] += '3'
+            return uifile.lcd.display(displayed_content[2])
+
+
 def number4():
-    global k
-    global t
-    if t.count('%') > 0:
-        k = '4'
-    elif k == '':
-        k = '4'
-    elif float(k) == 0:
-        if k.count('.') > 0:
-            k += '4'
+    global displayed_content
+    if displayed_content[1] is None:
+        if displayed_content[0] == '0':
+            displayed_content[0] = '4'
+            return uifile.lcd.display(displayed_content[0])
         else:
-            k = '4'
-    elif float(k) != 0:
-        k += '4'
-    uifile.lcd.display(k)
+            displayed_content[0] += '4'
+            return uifile.lcd.display(displayed_content[0])
+    elif displayed_content[1]:
+        if displayed_content[2] == '0':
+            displayed_content[2] = '4'
+            return uifile.lcd.display(displayed_content[2])
+        else:
+            displayed_content[2] += '4'
+            return uifile.lcd.display(displayed_content[2])
+
+
 def number5():
-    global k
-    global t
-    if t.count('%') > 0:
-        k = '5'
-    elif k == '':
-        k = '5'
-    elif float(k) == 0:
-        if k.count('.') > 0:
-            k += '5'
+    global displayed_content
+    if displayed_content[1] is None:
+        if displayed_content[0] == '0':
+            displayed_content[0] = '5'
+            return uifile.lcd.display(displayed_content[0])
         else:
-            k = '5'
-    elif float(k) != 0:
-        k += '5'
-    uifile.lcd.display(k)
+            displayed_content[0] += '5'
+            return uifile.lcd.display(displayed_content[0])
+    elif displayed_content[1]:
+        if displayed_content[2] == '0':
+            displayed_content[2] = '5'
+            return uifile.lcd.display(displayed_content[2])
+        else:
+            displayed_content[2] += '5'
+            return uifile.lcd.display(displayed_content[2])
+
+
 def number6():
-    global k
-    global t
-    if t.count('%') > 0:
-        k = '6'
-    elif k == '':
-        k = '6'
-    elif float(k) == 0:
-        if k.count('.') > 0:
-            k += '6'
+    global displayed_content
+    if displayed_content[1] is None:
+        if displayed_content[0] == '0':
+            displayed_content[0] = '6'
+            return uifile.lcd.display(displayed_content[0])
         else:
-            k = '6'
-    elif float(k) != 0:
-        k += '6'
-    uifile.lcd.display(k)
+            displayed_content[0] += '6'
+            return uifile.lcd.display(displayed_content[0])
+    elif displayed_content[1]:
+        if displayed_content[2] == '0':
+            displayed_content[2] = '6'
+            return uifile.lcd.display(displayed_content[2])
+        else:
+            displayed_content[2] += '6'
+            return uifile.lcd.display(displayed_content[2])
+
+
 def number7():
-    global k
-    global t
-    if t.count('%') > 0:
-        k = '7'
-    elif k == '':
-        k = '7'
-    elif float(k) == 0:
-        if k.count('.') > 0:
-            k += '7'
+    global displayed_content
+    if displayed_content[1] is None:
+        if displayed_content[0] == '0':
+            displayed_content[0] = '7'
+            return uifile.lcd.display(displayed_content[0])
         else:
-            k = '7'
-    elif float(k) != 0:
-        k += '7'
-    uifile.lcd.display(k)
+            displayed_content[0] += '7'
+            return uifile.lcd.display(displayed_content[0])
+    elif displayed_content[1]:
+        if displayed_content[2] == '0':
+            displayed_content[2] = '7'
+            return uifile.lcd.display(displayed_content[2])
+        else:
+            displayed_content[2] += '7'
+            return uifile.lcd.display(displayed_content[2])
+
+
 def number8():
-    global k
-    global t
-    if t.count('%') > 0:
-        k = '8'
-    elif k == '':
-        k = '8'
-    elif float(k) == 0:
-        if k.count('.') > 0:
-            k += '8'
+    global displayed_content
+    if displayed_content[1] is None:
+        if displayed_content[0] == '0':
+            displayed_content[0] = '8'
+            return uifile.lcd.display(displayed_content[0])
         else:
-            k = '8'
-    elif float(k) != 0:
-        k += '8'
-    uifile.lcd.display(k)
+            displayed_content[0] += '8'
+            return uifile.lcd.display(displayed_content[0])
+    elif displayed_content[1]:
+        if displayed_content[2] == '0':
+            displayed_content[2] = '8'
+            return uifile.lcd.display(displayed_content[2])
+        else:
+            displayed_content[2] += '8'
+            return uifile.lcd.display(displayed_content[2])
+
+
 def number9():
-    global k
-    global t
-    if t.count('%') > 0:
-        k = '9'
-    elif k == '':
-        k = '9'
-    elif float(k) == 0:
-        if k.count('.') > 0:
-            k += '9'
+    global displayed_content
+    if displayed_content[1] is None:
+        if displayed_content[0] == '0':
+            displayed_content[0] = '9'
+            return uifile.lcd.display(displayed_content[0])
         else:
-            k = '9'
-    elif float(k) != 0:
-        k += '9'
-    uifile.lcd.display(k)
+            displayed_content[0] += '9'
+            return uifile.lcd.display(displayed_content[0])
+    elif displayed_content[1]:
+        if displayed_content[2] == '0':
+            displayed_content[2] = '9'
+            return uifile.lcd.display(displayed_content[2])
+        else:
+            displayed_content[2] += '9'
+            return uifile.lcd.display(displayed_content[2])
+
+
 def percent():
     global t
-    global k
+    global displayed_content
     global h
     global c
     global d
     global p
     global r
     if d == 1:
-        if k != '' and p == True:
-            k = ''
+        if displayed_content != '' and p == True:
+            displayed_content = ''
             p = False
-        if k == '':
+        if displayed_content == '':
             if len(n) == 0:
                 uifile.lcd.display(0)
             else:
                 h = str(n[0])
         else:
-            h = k
+            h = displayed_content
         d += 1
     if d != 1:
         if len(n) == 0:
-            k = ''
+            displayed_content = ''
             uifile.lcd.display(0)
         if len(n) == 2:
             t += '%'
             if n[1] == '+':
-                if k == '':
+                if displayed_content == '':
                     r = (n[0]**(t.count('%')+1))/(100**t.count('%'))
-                    k = str(r)
+                    displayed_content = str(r)
                     t = ''
                 else:
                     r = (float(h)) * ((n[0]/100)**(t.count('%')))
-                    k = str(r)
+                    displayed_content = str(r)
             elif n[1] == '-':
-                if k == '':
+                if displayed_content == '':
                     r = (n[0]**(t.count('%')+1))/(100**t.count('%'))
-                    k = str(r)
+                    displayed_content = str(r)
                     t = ''
                 else:
                     r = (float(h)) * ((n[0]/100)**(t.count('%')))
-                    k = str(r)
+                    displayed_content = str(r)
             elif n[1] == '*':
-                if k == '':
+                if displayed_content == '':
                     r = n[0]/(100**t.count('%'))
-                    k = str(r)
+                    displayed_content = str(r)
                 else:
                     r = float(h)/(100**t.count('%'))
-                    k = str(r)
+                    displayed_content = str(r)
             elif n[1] == '/':
-                if k == '':
+                if displayed_content == '':
                     r = n[0]/(100**t.count('%'))
-                    k = str(r)
+                    displayed_content = str(r)
                 else:
                     r = float(h)/(100**t.count('%'))
-                    k = str(r)
+                    displayed_content = str(r)
             uifile.lcd.display(r)
+
+
 def sum():
-    global n
-    global k
-    global r
-    global c
-    global p
-    global d
-    global t
-    global h
-    global s
-    c = 1
-    d = 1
-    t = ''
-    if k != '' and p == True:
-        k = ''
-        p = False
-    if len(n) == 0:
-        if k == '':
-            n.append(0)
-            n.append('+')
-        else:
-            n.append(float(k))
-            n.append('+')
-            k = ''
-    elif len(n) == 2:
-        if k == '':
-            n[1] = '+'
-            n[0] = float(uifile.lcd.value())
-        else:
-            n.append(float(k))
-            k = ''
-            if n[1] == '+':
-                r = n[0] + n[2]
-            elif n[1] == '-':
-                r = n[0] - n[2]
-            elif n[1] == '*':
-                r = n[0] * n[2]
-            elif n[1] == '/':
-                try:
-                    r = n[0] / n[2]
-                except ZeroDivisionError:
-                    QMessageBox.about(uifile, 'Alert', 'Division By Zero')
-                    del n
-                    n = []
-                    c = 1
-                    d = 1
-                    r = float(0)
-                    s = ''
-                    h = ''
-                    k = ''
-                    t = ''
-                    p = False
-                    uifile.lcd.display(r)
-            if len(n) != 0:
-                n[0] = r
-                n[1] = '+'
-                n.pop(2)
-            uifile.lcd.display(r)
+    global displayed_content
+    if (displayed_content[1]) is None or (displayed_content[1] != '+'):
+        displayed_content[1] = '+'
+    else:
+        if float(displayed_content[2]) != 0:
+            displayed_content[0] = str(float(displayed_content[0]) + float(displayed_content[2]))
+            displayed_content[2] = '0'
+            return uifile.lcd.display(displayed_content[0])
+
+
 def sub():
-    global n
-    global k
-    global r
-    global c
-    global p
-    global d
-    global t
-    global h
-    global s
-    c = 1
-    d = 1
-    t = ''
-    if k != '' and p == True:
-        k = ''
-        p = False
-    if len(n) == 0:
-        if k == '':
-            n.append(0)
-            n.append('-')
-        else:
-            n.append(float(k))
-            n.append('-')
-            k = ''
-    elif len(n) == 2:
-        if k == '':
-            n[1] = '-'
-            n[0] = float(uifile.lcd.value())
-        else:
-            n.append(float(k))
-            k = ''
-            if n[1] == '+':
-                r = n[0] + n[2]
-            elif n[1] == '-':
-                r = n[0] - n[2]
-            elif n[1] == '*':
-                r = n[0] * n[2]
-            elif n[1] == '/':
-                try:
-                    r = n[0] / n[2]
-                except ZeroDivisionError:
-                    QMessageBox.about(uifile, 'Alert', 'Division By Zero')
-                    del n
-                    n = []
-                    c = 1
-                    d = 1
-                    r = float(0)
-                    s = ''
-                    h = ''
-                    k = ''
-                    t = ''
-                    p = False
-                    uifile.lcd.display(r)
-            if len(n) != 0:
-                n[0] = r
-                n[1] = '-'
-                n.pop(2)
-            uifile.lcd.display(r)
+    global displayed_content
+    if (displayed_content[1]) is None or (displayed_content[1] != '-'):
+        displayed_content[1] = '-'
+    else:
+        if float(displayed_content[2]) != 0:
+            displayed_content[0] = str(float(displayed_content[0]) - float(displayed_content[2]))
+            displayed_content[2] = '0'
+            return uifile.lcd.display(displayed_content[0])
+
+
 def x():
-    global n
-    global k
-    global r
-    global c
-    global p
-    global d
-    global t
-    global h
-    global s
-    c = 1
-    d = 1
-    t = ''
-    if k != '' and p == True:
-        k = ''
-        p = False
-    if len(n) == 0:
-        if k == '':
-            n.append(0)
-            n.append('*')
-        else:
-            n.append(float(k))
-            n.append('*')
-            k = ''
-    elif len(n) == 2:
-        if k == '':
-            n[1] = '*'
-            n[0] = float(uifile.lcd.value())
-        else:
-            n.append(float(k))
-            k = ''
-            if n[1] == '+':
-                r = n[0] + n[2]
-            elif n[1] == '-':
-                r = n[0] - n[2]
-            elif n[1] == '*':
-                r = n[0] * n[2]
-            elif n[1] == '/':
-                try:
-                    r = n[0] / n[2]
-                except ZeroDivisionError:
-                    QMessageBox.about(uifile, 'Alert', 'Division By Zero')
-                    del n
-                    n = []
-                    c = 1
-                    d = 1
-                    r = float(0)
-                    s = ''
-                    h = ''
-                    k = ''
-                    t = ''
-                    p = False
-                    uifile.lcd.display(r)
-            if len(n) != 0:
-                n[0] = r
-                n[1] = '*'
-                n.pop(2)
-            uifile.lcd.display(r)
+    global displayed_content
+    if (displayed_content[1]) is None or (displayed_content[1] != '*'):
+        displayed_content[1] = '*'
+    else:
+        displayed_content[0] = str(float(displayed_content[0]) * float(displayed_content[2]))
+        displayed_content[2] = '0'
+        return uifile.lcd.display(displayed_content[0])
+
+
 def div():
-    global n
-    global k
-    global r
-    global c
-    global p
-    global d
-    global t
-    global h
-    global s
-    c = 1
-    d = 1
-    t = ''
-    if k != '' and p == True:
-        k = ''
-        p = False
-    if len(n) == 0:
-        if k == '':
-            n.append(0)
-            n.append('/')
+    global displayed_content
+    if (displayed_content[1]) is None or (displayed_content[1] != '/'):
+        displayed_content[1] = '/'
+    else:
+        if float(displayed_content[2]) == 0:
+            uifile.lcd.display('Err')
+            QMessageBox.about(uifile, 'Alert', 'Division By Zero')
         else:
-            n.append(float(k))
-            n.append('/')
-            k = ''
-    elif len(n) == 2:
-        if k == '':
-            n[1] = '/'
-            n[0] = float(uifile.lcd.value())
-        else:
-            n.append(float(k))
-            k = ''
-            if n[1] == '+':
-                r = n[0] + n[2]
-            elif n[1] == '-':
-                r = n[0] - n[2]
-            elif n[1] == '*':
-                r = n[0] * n[2]
-            elif n[1] == '/':
-                try:
-                    r = n[0] / n[2]
-                except ZeroDivisionError:
-                    QMessageBox.about(uifile, 'Alert', 'Division By Zero')
-                    del n
-                    n = []
-                    c = 1
-                    d = 1
-                    r = float(0)
-                    s = ''
-                    h = ''
-                    k = ''
-                    t = ''
-                    p = False
-                    uifile.lcd.display(r)
-            if len(n) != 0:
-                n[0] = r
-                n[1] = '/'
-                n.pop(2)
-            uifile.lcd.display(r)
+            displayed_content[0] = str(float(displayed_content[0]) / float(displayed_content[2]))
+            displayed_content[2] = '0'
+            return uifile.lcd.display(displayed_content[0])
+
+
 def equal():
-    global n
-    global k
-    global r
-    global c
-    global p
-    global d
-    global t
-    global h
-    global s
-    d = 1
-    t = ''
-    if len(n) == 0 and k == '':
-        n.append(0)
-        r = n[0]
-        uifile.lcd.display(r)
-    elif len(n) == 0 and k != '':
-        n.append(float(k))
-        k = ''
-        r = n[0]
-        uifile.lcd.display(r)
-    if len(n) == 2 and k == '':
-        if c == 1:
-            n.append(n[0])
-            if n[1] == '+':
-                r = n[0] + n[2]
-            elif n[1] == '-':
-                r = n[0] - n[2]
-            elif n[1] == '*':
-                r = n[0] * n[2]
-            elif n[1] == '/':
-                try:
-                    r = n[0] / n[2]
-                except ZeroDivisionError:
-                    QMessageBox.about(uifile, 'Alert', 'Division By Zero')
-                    del n
-                    n = []
-                    c = 1
-                    d = 1
-                    r = float(0)
-                    s = ''
-                    h = ''
-                    k = ''
-                    t = ''
-                    p = False
-                    uifile.lcd.display(r)
-            if len(n) != 0:
-                n.pop(2)
-                s = n[0]
-            uifile.lcd.display(r)
-            c += 1
-        else:
-            n.append(s)
-            n[0] = r
-            if n[1] == '+':
-                r = n[0] + n[2]
-            elif n[1] == '-':
-                r = n[0] - n[2]
-            elif n[1] == '*':
-                r = n[0] * n[2]
-            elif n[1] == '/':
-                try:
-                    r = n[0] / n[2]
-                except ZeroDivisionError:
-                    QMessageBox.about(uifile, 'Alert', 'Division By Zero')
-                    del n
-                    n = []
-                    c = 1
-                    d = 1
-                    r = float(0)
-                    s = ''
-                    h = ''
-                    k = ''
-                    t = ''
-                    p = False
-                    uifile.lcd.display(r)
-            if len(n) != 0:
-                n.pop(2)
-            uifile.lcd.display(r)
-            c += 1
-    if len(n) == 2 and k != '':
-        if c == 1:
-            p = True
-            s = k
-            n.append(float(s))
-            if n[1] == '+':
-                r = n[0] + n[2]
-            elif n[1] == '-':
-                r = n[0] - n[2]
-            elif n[1] == '*':
-                r = n[0] * n[2]
-            elif n[1] == '/':
-                try:
-                    r = n[0] / n[2]
-                except ZeroDivisionError:
-                    QMessageBox.about(uifile, 'Alert', 'Division By Zero')
-                    del n
-                    n = []
-                    c = 1
-                    d = 1
-                    r = float(0)
-                    s = ''
-                    h = ''
-                    k = ''
-                    t = ''
-                    p = False
-                    uifile.lcd.display(r)
-            if len(n) != 0:
-                n[0] = r
-                n.pop(2)
-            c += 1
-            uifile.lcd.display(r)
-        else:
-            n[0] = r
-            n.append(float(s))
-            if n[1] == '+':
-                r = n[0] + n[2]
-            elif n[1] == '-':
-                r = n[0] - n[2]
-            elif n[1] == '*':
-                r = n[0] * n[2]
-            elif n[1] == '/':
-                try:
-                    r = n[0] / n[2]
-                except ZeroDivisionError:
-                    QMessageBox.about(uifile, 'Alert', 'Division By Zero')
-                    del n
-                    n = []
-                    c = 1
-                    d = 1
-                    r = float(0)
-                    s = ''
-                    h = ''
-                    k = ''
-                    t = ''
-                    p = False
-                    uifile.lcd.display(r)
-            if len(n) != 0:
-                n[0] = r
-                n.pop(2)
-            c += 1
-            uifile.lcd.display(r)
+    global displayed_content
+    if displayed_content[1] is None:
+        return uifile.lcd.display(displayed_content[0])
+    else:
+        if displayed_content[1] == '+':
+            return sum()
+        if displayed_content[1] == '-':
+            return sub()
+        if displayed_content[1] == '*':
+            return x()
+        if displayed_content[1] == '/':
+            return div()
+
+
 def clear():
-    global n
-    global k
-    global r
-    global c
-    global p
-    global d
-    global t
-    global h
-    global s
-    del n
-    n = []
-    c = 1
-    d = 1
-    r = float(0)
-    s = ''
-    h = ''
-    k = ''
-    t = ''
-    p = False
-    uifile.lcd.display(r)
-#def cancel_entry():
-#    global k
-#    k = '0'
-#    uifile.lcd.display(k)
+    global displayed_content
+    displayed_content = ['0', None, '0']
+    return uifile.lcd.display(displayed_content[0])
+
+
 def cancel_entry():
-    global k
-    k = '0'
-    uifile.lcd.display(k)
-'''def del_last():
-    global k
-    global r
-    print(k)
-    if uifile.lcd.value() == str(k):
-        if len(k) > 1:
-            k = k[:-1]
-            print('corta')
-        elif len(k) <= 1:
-            k = '0'
-            print('transforma em zero')
-        uifile.lcd.display(k)
-        print('display k')
-    elif uifile.lcd.value() == str(r):
-        uifile.lcd.display(r)
-        print('display r')'''
+    global displayed_content
+    if displayed_content[1] is None:
+        displayed_content[0] = '0'
+        displayed_content[2] = '0'
+        return uifile.lcd.display(displayed_content[0])
+    # elif (displayed_content[1] != None) and displayed_content[]
+    else:
+        displayed_content[2] = '0'
+        return uifile.lcd.display(displayed_content[2])
+
+
 def del_last():
-    global k
-    global r
-    if len(k) > 1:
-        k = k[:-1]
-    elif len(k) <= 1:
-        k = '0'
-    uifile.lcd.display(k)
+    global displayed_content
+    if displayed_content[1] is None:
+        if len(displayed_content[0]) > 1:
+            displayed_content[0] = displayed_content[0][:-1]
+            return uifile.lcd.display(displayed_content[0])
+        else:
+            displayed_content[0] = '0'
+            displayed_content[2] = '0'
+            return uifile.lcd.display(displayed_content[0])
+    else:
+        if len(displayed_content[2]) > 1:
+            displayed_content[2] = displayed_content[2][:-1]
+            return uifile.lcd.display(displayed_content[2])
+        else:
+            displayed_content[2] = '0'
+            return uifile.lcd.display(displayed_content[2])
 
 
-n = []
-c = 1
-d = 1
-s = ''
-h = ''
-k = ''
-t = ''
-r = float(0)
-p = False
+displayed_content = ['0', None, '0']
 app = QtWidgets.QApplication([])
 uifile = uic.loadUi('calculator.ui')
 uifile.b0.clicked.connect(number0)
