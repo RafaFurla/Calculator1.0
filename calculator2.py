@@ -3,353 +3,203 @@ from PyQt5.QtWidgets import QMessageBox
 
 
 def dot():
-    global displayed_content
-    if displayed_content[1] is None:
-        if displayed_content[0].count('.') == 0:
-            displayed_content[0] += '.'
-            return uifile.lcd.display(displayed_content[0])
-    elif displayed_content[1]:
-        if displayed_content[2].count('.') == 0:
-            displayed_content[2] += '.'
-            return uifile.lcd.display(displayed_content[2])
+    global result
+    if result.count('.') == 0:
+        if result == 'None':
+            result = '0.'
+        else:
+            result += '.'
+        return uifile.lcd.display(result)
+
+
+def numbers(number):
+    global result
+    if (result == '0') or (result == 'None'):
+        result = number
+    else:
+        result += number
+    return uifile.lcd.display(result)
 
 
 def number0():
-    global displayed_content
-    if displayed_content[1] is None:
-        if displayed_content[0] == '0':
-            return uifile.lcd.display(displayed_content[0])
-        else:
-            displayed_content[0] += '0'
-            return uifile.lcd.display(displayed_content[0])
-    elif displayed_content[1]:
-        if displayed_content[2] == '0':
-            return uifile.lcd.display(displayed_content[2])
-        else:
-            displayed_content[2] += '0'
-            return uifile.lcd.display(displayed_content[2])
+    numbers('0')
 
 
 def number1():
-    global displayed_content
-    if displayed_content[1] is None:
-        if displayed_content[0] == '0':
-            displayed_content[0] = '1'
-            return uifile.lcd.display(displayed_content[0])
-        else:
-            displayed_content[0] += '1'
-            return uifile.lcd.display(displayed_content[0])
-    elif displayed_content[1]:
-        if displayed_content[2] == '0':
-            displayed_content[2] = '1'
-            return uifile.lcd.display(displayed_content[2])
-        else:
-            displayed_content[2] += '1'
-            return uifile.lcd.display(displayed_content[2])
+    numbers('1')
 
 
 def number2():
-    global displayed_content
-    if displayed_content[1] is None:
-        if displayed_content[0] == '0':
-            displayed_content[0] = '2'
-            return uifile.lcd.display(displayed_content[0])
-        else:
-            displayed_content[0] += '2'
-            return uifile.lcd.display(displayed_content[0])
-    elif displayed_content[1]:
-        if displayed_content[2] == '0':
-            displayed_content[2] = '2'
-            return uifile.lcd.display(displayed_content[2])
-        else:
-            displayed_content[2] += '2'
-            return uifile.lcd.display(displayed_content[2])
+    numbers('2')
 
 
 def number3():
-    global displayed_content
-    if displayed_content[1] is None:
-        if displayed_content[0] == '0':
-            displayed_content[0] = '3'
-            return uifile.lcd.display(displayed_content[0])
-        else:
-            displayed_content[0] += '3'
-            return uifile.lcd.display(displayed_content[0])
-    elif displayed_content[1]:
-        if displayed_content[2] == '0':
-            displayed_content[2] = '3'
-            return uifile.lcd.display(displayed_content[2])
-        else:
-            displayed_content[2] += '3'
-            return uifile.lcd.display(displayed_content[2])
+    numbers('3')
 
 
 def number4():
-    global displayed_content
-    if displayed_content[1] is None:
-        if displayed_content[0] == '0':
-            displayed_content[0] = '4'
-            return uifile.lcd.display(displayed_content[0])
-        else:
-            displayed_content[0] += '4'
-            return uifile.lcd.display(displayed_content[0])
-    elif displayed_content[1]:
-        if displayed_content[2] == '0':
-            displayed_content[2] = '4'
-            return uifile.lcd.display(displayed_content[2])
-        else:
-            displayed_content[2] += '4'
-            return uifile.lcd.display(displayed_content[2])
+    numbers('4')
 
 
 def number5():
-    global displayed_content
-    if displayed_content[1] is None:
-        if displayed_content[0] == '0':
-            displayed_content[0] = '5'
-            return uifile.lcd.display(displayed_content[0])
-        else:
-            displayed_content[0] += '5'
-            return uifile.lcd.display(displayed_content[0])
-    elif displayed_content[1]:
-        if displayed_content[2] == '0':
-            displayed_content[2] = '5'
-            return uifile.lcd.display(displayed_content[2])
-        else:
-            displayed_content[2] += '5'
-            return uifile.lcd.display(displayed_content[2])
+    numbers('5')
 
 
 def number6():
-    global displayed_content
-    if displayed_content[1] is None:
-        if displayed_content[0] == '0':
-            displayed_content[0] = '6'
-            return uifile.lcd.display(displayed_content[0])
-        else:
-            displayed_content[0] += '6'
-            return uifile.lcd.display(displayed_content[0])
-    elif displayed_content[1]:
-        if displayed_content[2] == '0':
-            displayed_content[2] = '6'
-            return uifile.lcd.display(displayed_content[2])
-        else:
-            displayed_content[2] += '6'
-            return uifile.lcd.display(displayed_content[2])
+    numbers('6')
 
 
 def number7():
-    global displayed_content
-    if displayed_content[1] is None:
-        if displayed_content[0] == '0':
-            displayed_content[0] = '7'
-            return uifile.lcd.display(displayed_content[0])
-        else:
-            displayed_content[0] += '7'
-            return uifile.lcd.display(displayed_content[0])
-    elif displayed_content[1]:
-        if displayed_content[2] == '0':
-            displayed_content[2] = '7'
-            return uifile.lcd.display(displayed_content[2])
-        else:
-            displayed_content[2] += '7'
-            return uifile.lcd.display(displayed_content[2])
+    numbers('7')
 
 
 def number8():
-    global displayed_content
-    if displayed_content[1] is None:
-        if displayed_content[0] == '0':
-            displayed_content[0] = '8'
-            return uifile.lcd.display(displayed_content[0])
-        else:
-            displayed_content[0] += '8'
-            return uifile.lcd.display(displayed_content[0])
-    elif displayed_content[1]:
-        if displayed_content[2] == '0':
-            displayed_content[2] = '8'
-            return uifile.lcd.display(displayed_content[2])
-        else:
-            displayed_content[2] += '8'
-            return uifile.lcd.display(displayed_content[2])
+    numbers('8')
 
 
 def number9():
-    global displayed_content
-    if displayed_content[1] is None:
-        if displayed_content[0] == '0':
-            displayed_content[0] = '9'
-            return uifile.lcd.display(displayed_content[0])
-        else:
-            displayed_content[0] += '9'
-            return uifile.lcd.display(displayed_content[0])
-    elif displayed_content[1]:
-        if displayed_content[2] == '0':
-            displayed_content[2] = '9'
-            return uifile.lcd.display(displayed_content[2])
-        else:
-            displayed_content[2] += '9'
-            return uifile.lcd.display(displayed_content[2])
+    numbers('9')
 
 
 def percent():
-    global t
     global displayed_content
-    global h
-    global c
-    global d
-    global p
-    global r
-    if d == 1:
-        if displayed_content != '' and p == True:
-            displayed_content = ''
-            p = False
-        if displayed_content == '':
-            if len(n) == 0:
-                uifile.lcd.display(0)
-            else:
-                h = str(n[0])
-        else:
-            h = displayed_content
-        d += 1
-    if d != 1:
-        if len(n) == 0:
-            displayed_content = ''
-            uifile.lcd.display(0)
-        if len(n) == 2:
-            t += '%'
-            if n[1] == '+':
-                if displayed_content == '':
-                    r = (n[0]**(t.count('%')+1))/(100**t.count('%'))
-                    displayed_content = str(r)
-                    t = ''
-                else:
-                    r = (float(h)) * ((n[0]/100)**(t.count('%')))
-                    displayed_content = str(r)
-            elif n[1] == '-':
-                if displayed_content == '':
-                    r = (n[0]**(t.count('%')+1))/(100**t.count('%'))
-                    displayed_content = str(r)
-                    t = ''
-                else:
-                    r = (float(h)) * ((n[0]/100)**(t.count('%')))
-                    displayed_content = str(r)
-            elif n[1] == '*':
-                if displayed_content == '':
-                    r = n[0]/(100**t.count('%'))
-                    displayed_content = str(r)
-                else:
-                    r = float(h)/(100**t.count('%'))
-                    displayed_content = str(r)
-            elif n[1] == '/':
-                if displayed_content == '':
-                    r = n[0]/(100**t.count('%'))
-                    displayed_content = str(r)
-                else:
-                    r = float(h)/(100**t.count('%'))
-                    displayed_content = str(r)
-            uifile.lcd.display(r)
+    if displayed_content[1] is None:
+        displayed_content[0] = '0'
+        return uifile.lcd.display(displayed_content[0])
+    else:
+        if displayed_content[2] == '0':
+            displayed_content[2] = str(float(displayed_content[0]) * (float(displayed_content[0]) / 100))
+            return uifile.lcd.display(displayed_content[2])
+        if displayed_content[2] != '0':
+            displayed_content[2] = str(float(displayed_content[0]) * (float(displayed_content[2]) / 100))
+            return uifile.lcd.display(displayed_content[2])
+
+
+def operations(operator):
+    global displayed_content
+    global result
+    if (result == 'None') and (displayed_content == ['None', None, 'None']):
+        displayed_content[0] = '0'
+        displayed_content[1] = operator
+    elif (result != 'None') and (displayed_content[0] == 'None'):
+        displayed_content[0] = result
+        displayed_content[1] = operator
+        displayed_content[2] = 'None'
+        result = 'None'
+    elif (result == 'None') and (displayed_content[0] != 'None'):
+        displayed_content[1] = operator
+        displayed_content[2] = 'None'
+    elif (result != 'None') and (displayed_content[0] != 'None'):
+        if displayed_content[1] == operator:
+            if (operator == '/') and (result == '0'):
+                uifile.lcd.display('Err')
+                QMessageBox.about(uifile, 'Alert', 'Division By Zero')
+                displayed_content = ['None', None, 'None']
+                result = 'None'
+                return
+            if operator == '+':
+                result = str(float(displayed_content[0]) + float(result))
+            elif operator == '-':
+                result = str(float(displayed_content[0]) - float(result))
+            elif operator == '*':
+                result = str(float(displayed_content[0]) * float(result))
+            elif operator == '/':
+                result = str(float(displayed_content[0]) / float(result))
+            displayed_content[0] = result
+            uifile.lcd.display(result)
+        if displayed_content[1] != operator:
+            if displayed_content[1] == '+':
+                sum()
+                displayed_content[1] = operator
+            elif displayed_content[1] == '-':
+                sub()
+                displayed_content[1] = operator
+            elif displayed_content[1] == '*':
+                x()
+                displayed_content[1] = operator
+            elif displayed_content[1] == '/':
+                div()
+                displayed_content[1] = operator
+        result = 'None'
 
 
 def sum():
-    global displayed_content
-    if (displayed_content[1]) is None or (displayed_content[1] != '+'):
-        displayed_content[1] = '+'
-    else:
-        if float(displayed_content[2]) != 0:
-            displayed_content[0] = str(float(displayed_content[0]) + float(displayed_content[2]))
-            displayed_content[2] = '0'
-            return uifile.lcd.display(displayed_content[0])
+    operations('+')
 
 
 def sub():
-    global displayed_content
-    if (displayed_content[1]) is None or (displayed_content[1] != '-'):
-        displayed_content[1] = '-'
-    else:
-        if float(displayed_content[2]) != 0:
-            displayed_content[0] = str(float(displayed_content[0]) - float(displayed_content[2]))
-            displayed_content[2] = '0'
-            return uifile.lcd.display(displayed_content[0])
+    operations('-')
 
 
 def x():
-    global displayed_content
-    if (displayed_content[1]) is None or (displayed_content[1] != '*'):
-        displayed_content[1] = '*'
-    else:
-        displayed_content[0] = str(float(displayed_content[0]) * float(displayed_content[2]))
-        displayed_content[2] = '0'
-        return uifile.lcd.display(displayed_content[0])
+    operations('*')
 
 
 def div():
-    global displayed_content
-    if (displayed_content[1]) is None or (displayed_content[1] != '/'):
-        displayed_content[1] = '/'
-    else:
-        if float(displayed_content[2]) == 0:
-            uifile.lcd.display('Err')
-            QMessageBox.about(uifile, 'Alert', 'Division By Zero')
-        else:
-            displayed_content[0] = str(float(displayed_content[0]) / float(displayed_content[2]))
-            displayed_content[2] = '0'
-            return uifile.lcd.display(displayed_content[0])
+    operations('/')
 
 
 def equal():
     global displayed_content
-    if displayed_content[1] is None:
-        return uifile.lcd.display(displayed_content[0])
-    else:
+    global result
+    if (result == 'None') and (displayed_content == ['None', None, 'None']):
+        result = '0'
+        uifile.lcd.display(result)
+    elif (result != 'None') and (displayed_content == ['None', None, 'None']):
+        return uifile.lcd.display(result)
+    elif (result == 'None') and (displayed_content[1] is not None):
+        if displayed_content[2] == 'None':
+            displayed_content[2] = displayed_content[0]
         if displayed_content[1] == '+':
-            return sum()
-        if displayed_content[1] == '-':
-            return sub()
-        if displayed_content[1] == '*':
-            return x()
-        if displayed_content[1] == '/':
-            return div()
+            result = str(float(displayed_content[0]) + float(displayed_content[2]))
+        elif displayed_content[1] == '-':
+            result = str(float(displayed_content[0]) - float(displayed_content[2]))
+        elif displayed_content[1] == '*':
+            result = str(float(displayed_content[0]) * float(displayed_content[2]))
+        elif displayed_content[1] == '/':
+            result = str(float(displayed_content[0]) / float(displayed_content[2]))
+        uifile.lcd.display(result)
+        displayed_content[0] = result
+        result = 'None'
+    elif (result != 'None') and (displayed_content[1] is not None):
+        displayed_content[2] = result
+        if displayed_content[1] == '+':
+            sum()
+        elif displayed_content[1] == '-':
+            sub()
+        elif displayed_content[1] == '*':
+            x()
+        elif displayed_content[1] == '/':
+            div()
 
 
 def clear():
     global displayed_content
-    displayed_content = ['0', None, '0']
-    return uifile.lcd.display(displayed_content[0])
+    global result
+    displayed_content = ['None', None, 'None']
+    result = 'None'
+    return uifile.lcd.display('0')
 
 
 def cancel_entry():
     global displayed_content
-    if displayed_content[1] is None:
-        displayed_content[0] = '0'
-        displayed_content[2] = '0'
-        return uifile.lcd.display(displayed_content[0])
-    # elif (displayed_content[1] != None) and displayed_content[]
-    else:
-        displayed_content[2] = '0'
-        return uifile.lcd.display(displayed_content[2])
+    global result
+    result = '0'
+    uifile.lcd.display(result)
 
 
 def del_last():
-    global displayed_content
-    if displayed_content[1] is None:
-        if len(displayed_content[0]) > 1:
-            displayed_content[0] = displayed_content[0][:-1]
-            return uifile.lcd.display(displayed_content[0])
-        else:
-            displayed_content[0] = '0'
-            displayed_content[2] = '0'
-            return uifile.lcd.display(displayed_content[0])
-    else:
-        if len(displayed_content[2]) > 1:
-            displayed_content[2] = displayed_content[2][:-1]
-            return uifile.lcd.display(displayed_content[2])
-        else:
-            displayed_content[2] = '0'
-            return uifile.lcd.display(displayed_content[2])
+    global result
+    if result != 'None':
+        if len(result) > 1:
+            result = result[:-1]
+        elif len(result) == 1:
+            result = '0'
+        return uifile.lcd.display(result)
 
 
-displayed_content = ['0', None, '0']
+displayed_content = ['None', None, 'None']
+result = 'None'
 app = QtWidgets.QApplication([])
 uifile = uic.loadUi('calculator.ui')
 uifile.b0.clicked.connect(number0)
