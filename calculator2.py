@@ -2,204 +2,241 @@ from PyQt5 import QtWidgets, uic
 from PyQt5.QtWidgets import QMessageBox
 
 
-def dot():
-    global result
-    if result.count('.') == 0:
-        if result == 'None':
-            result = '0.'
-        else:
-            result += '.'
-        return uifile.lcd.display(result)
-
-
-def numbers(number):
-    global result
-    if (result == '0') or (result == 'None'):
-        result = number
-    else:
-        result += number
-    return uifile.lcd.display(result)
-
-
 def number0():
+    """This function is activated when the user press the number 0 button in the calculator."""
     numbers('0')
 
 
 def number1():
+    """This function is activated when the user press the number 1 button in the calculator."""
     numbers('1')
 
 
 def number2():
+    """This function is activated when the user press the number 2 button in the calculator."""
     numbers('2')
 
 
 def number3():
+    """This function is activated when the user press the number 3 button in the calculator."""
     numbers('3')
 
 
 def number4():
+    """This function is activated when the user press the number 4 button in the calculator."""
     numbers('4')
 
 
 def number5():
+    """This function is activated when the user press the number 5 button in the calculator."""
     numbers('5')
 
 
 def number6():
+    """This function is activated when the user press the number 6 button in the calculator."""
     numbers('6')
 
 
 def number7():
+    """This function is activated when the user press the number 7 button in the calculator."""
     numbers('7')
 
 
 def number8():
+    """This function is activated when the user press the number 8 button in the calculator."""
     numbers('8')
 
 
 def number9():
+    """This function is activated when the user press the number 9 button in the calculator."""
     numbers('9')
 
 
-def percent():
-    global displayed_content
-    if displayed_content[1] is None:
-        displayed_content[0] = '0'
-        return uifile.lcd.display(displayed_content[0])
+def numbers(number):
+    """This function is called by the number functions (number0, number1, ...). Its purpose is to put the right
+    number, pressed by the calculator's user, inside the variable 'screen'."""
+    global screen
+    if (screen == '0') or (screen == 'None'):
+        screen = number
     else:
-        if displayed_content[2] == '0':
-            displayed_content[2] = str(float(displayed_content[0]) * (float(displayed_content[0]) / 100))
-            return uifile.lcd.display(displayed_content[2])
-        if displayed_content[2] != '0':
-            displayed_content[2] = str(float(displayed_content[0]) * (float(displayed_content[2]) / 100))
-            return uifile.lcd.display(displayed_content[2])
+        screen += number
+    return uifile.lcd.display(screen)
 
 
-def operations(operator):
-    global displayed_content
-    global result
-    if (result == 'None') and (displayed_content == ['None', None, 'None']):
-        displayed_content[0] = '0'
-        displayed_content[1] = operator
-    elif (result != 'None') and (displayed_content[0] == 'None'):
-        displayed_content[0] = result
-        displayed_content[1] = operator
-        displayed_content[2] = 'None'
-        result = 'None'
-    elif (result == 'None') and (displayed_content[0] != 'None'):
-        displayed_content[1] = operator
-        displayed_content[2] = 'None'
-    elif (result != 'None') and (displayed_content[0] != 'None'):
-        if displayed_content[1] == operator:
-            if (operator == '/') and (result == '0'):
-                uifile.lcd.display('Err')
-                QMessageBox.about(uifile, 'Alert', 'Division By Zero')
-                displayed_content = ['None', None, 'None']
-                result = 'None'
-                return
-            if operator == '+':
-                result = str(float(displayed_content[0]) + float(result))
-            elif operator == '-':
-                result = str(float(displayed_content[0]) - float(result))
-            elif operator == '*':
-                result = str(float(displayed_content[0]) * float(result))
-            elif operator == '/':
-                result = str(float(displayed_content[0]) / float(result))
-            displayed_content[0] = result
-            uifile.lcd.display(result)
-        if displayed_content[1] != operator:
-            if displayed_content[1] == '+':
-                sum()
-                displayed_content[1] = operator
-            elif displayed_content[1] == '-':
-                sub()
-                displayed_content[1] = operator
-            elif displayed_content[1] == '*':
-                x()
-                displayed_content[1] = operator
-            elif displayed_content[1] == '/':
-                div()
-                displayed_content[1] = operator
-        result = 'None'
+def dot():
+    """This function is activated when the user press the dot button in the calculator. Its purpose is to put the
+    '.' (dot) symbol inside the variable 'screen', if the situation permits."""
+    global screen
+    if screen.count('.') == 0:
+        if screen == 'None':
+            screen = '0.'
+        else:
+            screen += '.'
+        return uifile.lcd.display(screen)
+
+
+def percent():
+    """This function is activated when the user press the percent button (%) in the calculator. When pressed, this
+    function calculates de percentage of the last value number pressed by the user. This value is saved inside 'screen'
+    variable."""
+    global memory
+    global screen
+    if (screen == 'None') and (memory[0] != 'None'):
+        screen = memory[0]
+    if screen != 'None':
+        screen = str((float(screen) / 100))
+    return uifile.lcd.display(screen)
 
 
 def sum():
+    """This function is activated when the user press the sum (+) button in the calculator."""
     operations('+')
 
 
 def sub():
+    """This function is activated when the user press the subtraction (-) button in the calculator."""
     operations('-')
 
 
 def x():
+    """This function is activated when the user press the multiplication (x) button in the calculator."""
     operations('*')
 
 
 def div():
+    """This function is activated when the user press the division (/) button in the calculator."""
     operations('/')
 
 
+def operations(operator):
+    """This function is called by the operation functions (sum, sub, x and div). Its purpose is to save the operation
+    chose by the user in the memory[1] variable. But in some cases it can calculates the result of the operation."""
+    global memory
+    global screen
+    if (screen == 'None') and (memory == ['None', None, 'None']):
+        memory[0] = '0'
+        memory[1] = operator
+    elif (screen != 'None') and (memory[0] == 'None'):
+        memory[0] = screen
+        memory[1] = operator
+        memory[2] = 'None'
+        screen = 'None'
+    elif (screen == 'None') and (memory[0] != 'None'):
+        memory[1] = operator
+        memory[2] = 'None'
+    elif (screen != 'None') and (memory[0] != 'None'):
+        if memory[1] == operator:
+            if (operator == '/') and (screen == '0'):
+                uifile.lcd.display('Err')
+                QMessageBox.about(uifile, 'Alert', 'Division By Zero')
+                memory = ['None', None, 'None']
+                screen = 'None'
+                return
+            if operator == '+':
+                screen = str(float(memory[0]) + float(screen))
+            elif operator == '-':
+                screen = str(float(memory[0]) - float(screen))
+            elif operator == '*':
+                screen = str(float(memory[0]) * float(screen))
+            elif operator == '/':
+                screen = str(float(memory[0]) / float(screen))
+            memory[0] = screen
+            uifile.lcd.display(screen)
+        if memory[1] != operator:
+            if memory[1] == '+':
+                sum()
+                memory[1] = operator
+            elif memory[1] == '-':
+                sub()
+                memory[1] = operator
+            elif memory[1] == '*':
+                x()
+                memory[1] = operator
+            elif memory[1] == '/':
+                div()
+                memory[1] = operator
+        screen = 'None'
+
+
 def equal():
-    global displayed_content
-    global result
-    if (result == 'None') and (displayed_content == ['None', None, 'None']):
-        result = '0'
-        uifile.lcd.display(result)
-    elif (result != 'None') and (displayed_content == ['None', None, 'None']):
-        return uifile.lcd.display(result)
-    elif (result == 'None') and (displayed_content[1] is not None):
-        if displayed_content[2] == 'None':
-            displayed_content[2] = displayed_content[0]
-        if displayed_content[1] == '+':
-            result = str(float(displayed_content[0]) + float(displayed_content[2]))
-        elif displayed_content[1] == '-':
-            result = str(float(displayed_content[0]) - float(displayed_content[2]))
-        elif displayed_content[1] == '*':
-            result = str(float(displayed_content[0]) * float(displayed_content[2]))
-        elif displayed_content[1] == '/':
-            result = str(float(displayed_content[0]) / float(displayed_content[2]))
-        uifile.lcd.display(result)
-        displayed_content[0] = result
-        result = 'None'
-    elif (result != 'None') and (displayed_content[1] is not None):
-        displayed_content[2] = result
-        if displayed_content[1] == '+':
+    """This function is activated when the user press the equal symbol (=) button in the calculator. This purpose is
+    to calculate the operation chose by the user."""
+    global memory
+    global screen
+    if (screen == 'None') and (memory == ['None', None, 'None']):
+        # situation when the user click the equal button when the calculator starts.
+        screen = '0'
+        uifile.lcd.display(screen)
+    elif (screen != 'None') and (memory == ['None', None, 'None']):
+        # situation when the user click the equal button after starts the calculator and click in a number.
+        return uifile.lcd.display(screen)
+    elif (screen == 'None') and (memory[1] is not None):
+        # situation when the user click the equal button after starts the calculator and click in a operation button.
+        if memory[2] == 'None':
+            memory[2] = memory[0]
+        if memory[1] == '+':
+            screen = str(float(memory[0]) + float(memory[2]))
+        elif memory[1] == '-':
+            screen = str(float(memory[0]) - float(memory[2]))
+        elif memory[1] == '*':
+            screen = str(float(memory[0]) * float(memory[2]))
+        elif memory[1] == '/':
+            screen = str(float(memory[0]) / float(memory[2]))
+        uifile.lcd.display(screen)
+        memory[0] = screen
+        screen = 'None'
+    elif (screen != 'None') and (memory[1] is not None):
+        # situation when the user click the equal button after input the first, operation and the last number.
+        memory[2] = screen
+        if memory[1] == '+':
             sum()
-        elif displayed_content[1] == '-':
+        elif memory[1] == '-':
             sub()
-        elif displayed_content[1] == '*':
+        elif memory[1] == '*':
             x()
-        elif displayed_content[1] == '/':
+        elif memory[1] == '/':
             div()
 
 
 def clear():
-    global displayed_content
-    global result
-    displayed_content = ['None', None, 'None']
-    result = 'None'
+    global memory
+    global screen
+    """This function is activated when the user press the clear button (C) in the calculator. Its purpose is to clear 
+    the screen and all the memory data."""
+    memory = ['None', None, 'None']
+    screen = 'None'
     return uifile.lcd.display('0')
 
 
 def cancel_entry():
-    global displayed_content
-    global result
-    result = '0'
-    uifile.lcd.display(result)
+    """This function is activated when the user press the cancel entry button (CE) in the calculator. Its purpose is to
+    clear the screen and the variable 'screen'."""
+    global screen
+    screen = '0'
+    uifile.lcd.display(screen)
 
 
 def del_last():
-    global result
-    if result != 'None':
-        if len(result) > 1:
-            result = result[:-1]
-        elif len(result) == 1:
-            result = '0'
-        return uifile.lcd.display(result)
+    """This function is activated when the user press the backspace button (<-) in the calculator. Its purpose is to
+        clear the last entry inside the 'screen' variable."""
+    global screen
+    if screen != 'None':
+        if len(screen) > 1:
+            screen = screen[:-1]
+        elif len(screen) == 1:
+            screen = '0'
+        return uifile.lcd.display(screen)
 
 
-displayed_content = ['None', None, 'None']
-result = 'None'
+memory = ['None', None, 'None']
+"""The variable memory is used to save the first number entry by the user in memory[0] space. Is also used to save the 
+operation chose by the user in memory[1] and the last number entry by the user in memory[2]. All entries are saved as 
+strings, converted in float numbers to make the operations and then reconverted in strings."""
+
+screen = 'None'
+"""The variable screen is used to save the data that goes to the calculator screen."""
+
+
 app = QtWidgets.QApplication([])
 uifile = uic.loadUi('calculator.ui')
 uifile.b0.clicked.connect(number0)
