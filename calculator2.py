@@ -88,8 +88,8 @@ def percent():
     return uifile.lcd.display(screen)
 
 
-def sum():
-    """This function is activated when the user press the sum (+) button in the calculator."""
+def add():
+    """This function is activated when the user press the add (+) button in the calculator."""
     operations('+')
 
 
@@ -109,8 +109,8 @@ def div():
 
 
 def operations(operator):
-    """This function is called by the operation functions (sum, sub, x and div). Its purpose is to save the operation
-    chose by the user in the memory[1] variable. But in some cases it can calculates the result of the operation."""
+    """This function is called by the operation functions (add, sub, x and div). Its purpose is to save the operation
+    chose by the user in the memory[1] variable. But in some cases it can calculate the result of the operation."""
     global memory
     global screen
     if (screen == 'None') and (memory == ['None', None, 'None']):
@@ -144,7 +144,7 @@ def operations(operator):
             uifile.lcd.display(screen)
         if memory[1] != operator:
             if memory[1] == '+':
-                sum()
+                add()
                 memory[1] = operator
             elif memory[1] == '-':
                 sub()
@@ -171,7 +171,7 @@ def equal():
         # situation when the user click the equal button after starts the calculator and click in a number.
         return uifile.lcd.display(screen)
     elif (screen == 'None') and (memory[1] is not None):
-        # situation when the user click the equal button after starts the calculator and click in a operation button.
+        # situation when the user click the equal button after starts the calculator and click in an operation button.
         if memory[2] == 'None':
             memory[2] = memory[0]
         if memory[1] == '+':
@@ -189,7 +189,7 @@ def equal():
         # situation when the user click the equal button after input the first, operation and the last number.
         memory[2] = screen
         if memory[1] == '+':
-            sum()
+            add()
         elif memory[1] == '-':
             sub()
         elif memory[1] == '*':
@@ -228,36 +228,36 @@ def del_last():
         return uifile.lcd.display(screen)
 
 
-memory = ['None', None, 'None']
-"""The variable memory is used to save the first number entry by the user in memory[0] space. Is also used to save the 
-operation chose by the user in memory[1] and the last number entry by the user in memory[2]. All entries are saved as 
-strings, converted in float numbers to make the operations and then reconverted in strings."""
+if __name__ == "__main__":
+    memory = ['None', None, 'None']
+    """The variable memory is used to save the first number entry by the user in memory[0] space. Is also used to save 
+    the operation chose by the user in memory[1] and the last number entry by the user in memory[2]. All entries are 
+    saved as strings, converted in float numbers to make the operations and then reconverted in strings."""
 
-screen = 'None'
-"""The variable screen is used to save the data that goes to the calculator screen."""
+    screen = 'None'
+    """The variable screen is used to save the data that goes to the calculator screen."""
 
-
-app = QtWidgets.QApplication([])
-uifile = uic.loadUi('calculator.ui')
-uifile.b0.clicked.connect(number0)
-uifile.b1.clicked.connect(number1)
-uifile.b2.clicked.connect(number2)
-uifile.b3.clicked.connect(number3)
-uifile.b4.clicked.connect(number4)
-uifile.b5.clicked.connect(number5)
-uifile.b6.clicked.connect(number6)
-uifile.b7.clicked.connect(number7)
-uifile.b8.clicked.connect(number8)
-uifile.b9.clicked.connect(number9)
-uifile.bsum.clicked.connect(sum)
-uifile.bsub.clicked.connect(sub)
-uifile.bx.clicked.connect(x)
-uifile.bdiv.clicked.connect(div)
-uifile.bequal.clicked.connect(equal)
-uifile.bc.clicked.connect(clear)
-uifile.bce.clicked.connect(cancel_entry)
-uifile.bdot.clicked.connect(dot)
-uifile.bdel.clicked.connect(del_last)
-uifile.bperc.clicked.connect(percent)
-uifile.show()
-app.exec()
+    app = QtWidgets.QApplication([])
+    uifile = uic.loadUi('calculator.ui')
+    uifile.b0.clicked.connect(number0)
+    uifile.b1.clicked.connect(number1)
+    uifile.b2.clicked.connect(number2)
+    uifile.b3.clicked.connect(number3)
+    uifile.b4.clicked.connect(number4)
+    uifile.b5.clicked.connect(number5)
+    uifile.b6.clicked.connect(number6)
+    uifile.b7.clicked.connect(number7)
+    uifile.b8.clicked.connect(number8)
+    uifile.b9.clicked.connect(number9)
+    uifile.bsum.clicked.connect(add)
+    uifile.bsub.clicked.connect(sub)
+    uifile.bx.clicked.connect(x)
+    uifile.bdiv.clicked.connect(div)
+    uifile.bequal.clicked.connect(equal)
+    uifile.bc.clicked.connect(clear)
+    uifile.bce.clicked.connect(cancel_entry)
+    uifile.bdot.clicked.connect(dot)
+    uifile.bdel.clicked.connect(del_last)
+    uifile.bperc.clicked.connect(percent)
+    uifile.show()
+    app.exec()
