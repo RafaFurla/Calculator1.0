@@ -1,6 +1,6 @@
 # Calculator 1.0 
 
-This project I created a calculator application with GUI (Graphical User Interface). 
+In this project I created a calculator application with GUI (Graphical User Interface). 
 The code was written in python 3.9 and the GUI was created using PyQt5 (biding for Qt Framework).
 
 > This calculator has the following functions:
